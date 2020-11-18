@@ -1,1 +1,1 @@
-why did you click this
+This is an in-progress game. 
