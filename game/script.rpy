@@ -1067,6 +1067,29 @@ label applejackparty:
     rd "Anytime!"
     "They're right on the verge of arguing so now might be a good time to interrupt..."
     "I take a step forward and say:"
+    menu:
+        "I think Applejack is right.":
+            
+            jump applejackright
+
+        "I think Rainbow Dash is right.":
+            
+            jump rainbowdashright
+    
+label applejackright:
+    "Applejack turns around smugly."
+    aj "Yeah, the only thing that'd accomplish is settin' the tree on fire!"
+    "Rainbow Dash shrugs, acting unbothered."
+    rd "It would have been cool, that's all I'm saying."
+label rainbowdashright:
+    "Rainbow Dash jumps in the air with her hoof up."
+    rd "Yeah! See, if you don't let me try it with a lightning cloud, you'll never know what might happen!"
+    aj "Then Ah guess we'll never know! My precious apple trees have been raised since Ah was a filly."
+    aj "Seeing one struck down is like losing a family member."
+    "Rainbow Dash softens and gives her a hug. Applejack pushes her away, still smiling."
+    aj "I don't need a hug cause it ain't happenin'!"
+    
+    
    
     jump afterparty
 
