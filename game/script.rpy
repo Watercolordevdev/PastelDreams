@@ -177,6 +177,7 @@ label zecora:
     "Slowly, I begin to sit up and observe my surroundings."
     "Everything is marshy and I can hear frogs croaking and creaking."
     "Something {i}wriggles{/i} away."
+    "I hear a noise."
     show zecora standing with Dissolve(0.5)
     play sound "hoofsteps.mp3"    
     "I hear a crashing and stomping through the brush."
