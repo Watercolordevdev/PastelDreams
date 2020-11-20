@@ -1,113 +1,4 @@
-﻿#    if not persistent.set_volumes:
-#        persistent.set_volumes = True
-#        _preferences.volumes['music'] *= .40
-init python:
-    config.overlay_screens.append("keymap_screen")
-    if not persistent.set_volumes:
-        persistent.set_volumes = True
-        try:
-            _preferences.volumes['music'] *= .50
-        except KeyError:
-            _preferences.volumes['music'] = .50        
-    
-init:
-#this changes skip to mousewheel
-    $ config.keymap['rollforward'].remove('mousedown_5')
-    $ config.keymap['rollback'].remove('mousedown_4')
-    $ config.keymap['dismiss'].append('mousedown_5')
-    $ config.keymap['rollforward'].append('K_q')
-    $ config.keymap['rollback'].append('K_w')
-define config.game_menu_music = "gamemenu.ogg"
-screen keymap_screen():
-    key "K_y" action ShowMenu('history')
-define gui.name_text_outlines = [ (0, "#000000", 2, 2) ]
-# Declare characters used by this game. The color argument colorizes the name of the character.
-define t = Character("Twilight Sparkle", color="#800080")
-define a = Character(_("[povname]"), color="#228B22", who_outlines=[ (2, "#ffffff") ])
-define z = Character(_("Zecora"), color="#696969", who_outlines=[ (2, "#ffffff") ])
-define l = Character(_("Lyra"), color="#98ff98", who_outlines=[ (2, "#ffffff") ])
-define s = Character(_("Spike"), color="#DA70D6", who_outlines=[ (2, "#ffffff") ])
-define c = Character(_("Celestia"), color="#808080", who_outlines=[ (2, "#ffffff") ])
-define r = Character(_("Rarity"), color="#808080", who_outlines=[ (2, "#ffffff") ])
-define prd = Character(_("Pinkie and Rainbow Dash"), color="#bdcda8", who_outlines=[ (2, "#ffffff") ])
-define p = Character(_("Pinkie"), color="#FF69B4", who_outlines=[ (2, "#ffffff") ])
-define rd = Character(_("Rainbow Dash"), color="#48D1CC", who_outlines=[ (2, "#ffffff") ])
-define f = Character(_("Fluttershy"), color="#FFFF66", who_outlines=[ (2, "#ffffff") ])
-define aj = Character(_("Applejack"), color="#FFA500", who_outlines=[ (2, "#ffffff") ])
-
-
-default povname = "Anonymous"
-
-image chapter = ParameterizedText(xalign=0.5, yalign=0.3)
-
-# The game starts here.
-
-#default a = 2
-#label start:
-#  $ a = 3
-#  if a == 2:
-#    e "Do a thing"
-#  else:
-#    e "Do another thing"
-
-#List of songs: spooky.mp3 (original Everfree song), Pinkiepie.mp3, intro.mp3, mainmenu.ogg, gamemenu.ogg, mysterious.ogg, sleeping.ogg, magical.ogg, exciting.ogg, boardgame.ogg
-
-image zecora standing = im.MatrixColor(
-    "zecora stand.png", 
-    im.matrix.tint(.44,.65,.75)
-    *im.matrix.brightness(-0.07))
-    
-screen party():
-  imagebutton:
-    focus_mask "pinkiebutton_idle_img.png"
-    idle "pinkiebutton_idle_img.png"
-    hover "pinkiebutton_hover_img.png"
-    pos (583,27)
-    action Jump("pinkieparty")
-  imagebutton:
-    focus_mask "dashbutton_idle_img.png"
-    idle "dashbutton_idle_img.png"
-    hover "dashbutton_hover_img.png"
-    pos (0,70)
-    action Jump("applejackparty")
-  imagebutton:
-    focus_mask "raritybutton_idle_img.png"
-    idle "raritybutton_idle_img.png"
-    hover "raritybutton_hover_img.png"
-    pos (927,369)
-    action Jump("rarityparty")
-  imagebutton:
-    focus_mask "twilightbutton_idle_img.png"
-    idle "twilightbutton_idle_img.png"
-    hover "twilightbutton_hover_img.png"
-    pos (1267,360)
-    action Jump("twilightparty")
-  imagebutton:
-    focus_mask "fluttershybutton_idle_img.png"
-    idle "fluttershybutton_idle_img.png"
-    hover "fluttershybutton_hover_img.png"
-    pos (661,406)
-    action Jump("fluttershyparty")
-  imagebutton:
-    focus_mask "ajbutton_idle_img.png"
-    idle "ajbutton_idle_img.png"
-    hover "ajbutton_hover_img.png"
-    pos (160,405)
-    action Jump("applejackparty")
-  imagebutton:
-    focus_mask "spikebutton_idle_img.png"
-    idle "spikebutton_idle_img.png"
-    hover "spikebutton_hover_img.png"
-    pos (0,538)
-    action Jump("spikeparty")
-    
-   
-
-#Todo list: Add vectors for Celestia and Twilight in and code Lyra behind the table in the diner. 
-#Make the rest of Zecora's sprites dark in the forest
-
-
-label start:
+﻿label start:
 
     "Press TAB to fast forward, Y for message history, W to go back once, H to hide the sprites and text box, and mouse wheel, spacebar, or left click to advance the text."
     menu:
@@ -133,12 +24,12 @@ label anon:
     show chapter "DAY 1"
     $renpy.pause(2, hard=False)
     scene black
-    play music "intro.mp3"   
+    play music "/audio/music/intro.mp3"   
     "Another dead-end night, just the same thing, over and over."
     "Story of my life."
     "I'm on my way to work: an absolutely hellish job."
     scene bg dishwash with dissolve
-    play sound "audio/dishwashing.mp3"    
+    play sound "audio/sfx/dishwashing.mp3"    
     "The kitchen is gray and steel and everything feels muffled, except for the slamming of dishes and chattering of coworkers."
     "Worse, I'm late, which adds to my stress."
     "The restaurant is heavily frequented and it's very busy, as expected."
@@ -170,7 +61,7 @@ label anon:
     "Down."
     "Down to ...somewhere."
 label zecora:
-    play music "mysterious.ogg"
+    play music "/audio/music/mysterious.ogg"
     scene bg everfree with dissolve
     "I'm laying on the ground and something sharp is poking my leg."
     "Everything hurts."
@@ -179,9 +70,8 @@ label zecora:
     "Something {i}wriggles{/i} away."
     "I hear a noise."
     show zecora standing with Dissolve(0.5)
-    play sound "hoofsteps.mp3"    
+    play sound "audio/sfx/hoofsteps.mp3"    
     "I hear a crashing and stomping through the brush."
-    play sound "zecoraline1.mp3"    
     z "If mine eyes do not deceive, a strange being I do perceive!"
     "A striped horse with earrings and golden bangles around her waist approaches me."
     "I'm stunned into silence for several seconds."
@@ -190,7 +80,6 @@ label zecora:
     z "A horse I am not; though I am close, in truth. I am a zebra, and my stripes are proof."
     a "Wha- who are you?"
     show zecora sit with Dissolve(0.5)
-    play sound "zecoraline3.mp3"    
     z "Zecora is what they call me, now who might you be?"
 python:
     povname = renpy.input("What is your name?")
@@ -225,20 +114,17 @@ show zecora with Dissolve(0.5)
 "I notice certain things about her, like the fact she has outlines and the colors here are weirdly flat compared to where I just came from."
 "Plus, a {i}talking horse{/i}..."
 "What weird fairytale have I fallen into? Am I dreaming?"
-a "Is this all a dream?"
-play sound "zecoraline10.mp3"    
+a "Is this all a dream?"  
 z "I do not know how strange this may seem, but this is assuredly not a dream!"
 a "Really?"
-play sound "zecoraline11.mp3"    
 z "For you, this I speak true."
 a "So I'm really not home anymore..."
 "She didn't reply to that this time as I talked outloud to myself."
 "Mud is caking my boots, and dirt is splattered on my jeans. My uniform is rumpled now."
 "She looks back at me with piercing blue eyes."
-play sound "zecoraline12.mp3"    
 z "Don't worry your aching feet, our journey is nearly complete."
 scene bg zecora tree with dissolve
-play music "spooky.mp3"
+play music "/audio/music/spooky.mp3"
 show zecora back with Dissolve(0.5)
 "She approaches a massive tree decorated with masks and bottles hanging from ropes."
 "Zecora pushes aside some leaves and trots up to the door."
@@ -249,26 +135,21 @@ show zecora sit with Dissolve(0.5)
 z "Come in, come in, [povname] you are welcome here and have nothing to fear. Since Ponyville is farther away, here you will stay."
 a "Thanks, Zecora."
 "She goes to her pot in the center of the room and pulls out a big spoon."
-play sound "zecoraline14.mp3"   
 z "Hungry you might be after our trek, but I will take the time to check. If you are hungry for a meal, then I will make you a deal."
 a "A deal?"
-play sound "zecoraline15.mp3"    
 z "Trade me some of your clippings of nail, for future spells without fail."
 a "Well, that's a little weird but okay."
 "She passes me some nail clippers in an anatomically-impossible fashion with her hoof. I take them and do as she asks, clipping my fingernails."
 a "Uh, you're not going to be casting these future spells on me, are you? Or cursing me?"
 show zecora front with Dissolve(0.5)
-play sound "zecoraline16.mp3"    
 z "No, such a thing I would not do, or my luck would be shot through."
 "She collects the fingernail shavings, humming to herself, and then puts them in a jar."
 show zecora with Dissolve(0.5)
-play sound "zecoraline17.mp3"    
 z "I am a collector by nature, now let me label it by nomenclature. What manner of creature are you, just between us two?"
 a "I'm known as a human."
 "I say it with a slight grimace. This is all so silly. Any minute now, I'd surely be whisked back suffering from a headache..."
 "Any minute..."
 "She writes the word in ink with a feather and a flourish."
-play sound "zecoraline18.mp3"    
 z "As agreed, I will prepare dinner for us, so simply wait there without a fuss."
 scene zecora stir with dissolve
 "She starts a fire under a huge black pot with some flint."
@@ -284,27 +165,21 @@ show zecora with Dissolve(0.5)
 "I dip my spoon in and eat some of the soup."
 "She's watching me."
 show zecora sit with Dissolve(0.5)
-play sound "zecoraline19.mp3"    
 z "[povname], is it good to eat? Self-grown veggies are for me a treat!"
 a "Yeah, it's good! Very savory."
 "I chew the pasta noodles with gusto. The vegetables are mixed in and the broth is decent. Very tomato-ey."
 a "Mmmm."
-play sound "zecoraline20.mp3"    
 z "The carrots are the hardest to grow, but they are my favorite though."
 a "I see. Is it hard to always speak in rhyme like that?"
-play sound "zecoraline21.mp3"    
 z "Practice makes for perfection, rhyming becomes a natural skill with some direction."
 "I empty my bowl and the grey zebra takes it and places it in the sink with hers. She washes them. I start to protest but she shakes her head."
 show zecora with Dissolve(0.5)
-play sound "zecoraline22.mp3" 
 z "As a guest, it would not do. Sit back, relax, and I will find a place for you."
 "She smiles at me after scrubbing the bowls with soap and rinsing them and placing them on a towel."
-play sound "zecoraline23.mp3"    
 z "I have just the thing, just you wait, it's like I knew you were coming through fate."
 "She pulls out some bit of cloth, unrolls it, and attaches it to rings on the wall and the roof."
 "After she's done, I realize she's hung up a hammock for me."
 a "Thank you. I'm not ready to lie down yet."
-play sound "zecoraline24.mp3"    
 z "It's good to be ready, you do look unsteady."
 a "I do?"
 "She's right, that walk must have taken more out of me than I thought. I sit in one of her chairs."
@@ -312,13 +187,10 @@ a "I do?"
 "I look around..."
 "No television here..."
 a "What do you do to pass the time around here?"
-play sound "zecoraline25.mp3"    
 z "I often read a book borrowed from Twilight, when it comes to the night."
-play sound "zecoraline26.mp3"    
 z "Speaking of her, on the morrow, we'll visit her since with mysteries, she is most thorough." 
 a "O-oh, okay. Do you have a book I could read?"
 show zecora back with Dissolve(0.5)
-play sound "zecoraline27.5.mp3"    
 z "Many such books, if you want to take a look."
 "She gestures to her bookshelf, inviting me to head over."
 "I take a deep breath, and pull out a random book off the shelf."
@@ -326,7 +198,6 @@ z "Many such books, if you want to take a look."
 "I try the next one."
 "It's a book with a blushing pony on the cover in the arms of a stallion. I leaf through it experimentally."
 show zecora stand with Dissolve(0.5)
-play sound "bookcover.mp3"    
 z "Oh, that is a good one, reading it will be fun. Don't judge the book by its cover, it's a tale of adventure about her lover."
 "You know, what the hell. I never read these but maybe a horse romance could be interesting."
 "First day in a new world, after all."
@@ -339,7 +210,6 @@ z "Oh, that is a good one, reading it will be fun. Don't judge the book by its c
 "I give a big yawn."
 a "Hey, I'm going to bed now."
 show zecora sit with Dissolve(0.5)
-play sound "goodnight.mp3"    
 z "Have a good rest and goodnight, be sure to sleep tight."
 scene black with dissolve
 "I climb into the hammock she's hung and she comes over to give me a pillow."
@@ -361,7 +231,6 @@ scene black with dissolve
 "Suddenly..."
 "In the morning, a gentle touch wakes me."
 show zecora front with Dissolve(0.5)
-play sound "notbeen.mp3"    
 z "Now is the time we must walk again, and go where you have not been."
 scene bg everfree with dissolve
 "The sun is barely piercing the trees outside and a gloomy fog clings to the ground."
@@ -373,7 +242,7 @@ scene bg ponyville with dissolve
 jump meetingtwilight
 
 label meetingtwilight:
-    play music "chill.mp3"
+    play music "/audio/music/chill.mp3"
     scene bg library day with dissolve
     "We walk through the streets and ponies gawp at us." 
     "Well, no, me. They gawk at me."
@@ -394,7 +263,6 @@ label meetingtwilight:
     "A purple pony! A unicorn to be exact. She eyes me up and down, politely restraining the thousands of probing questions that are likely running through her mind right now."
     hide twilight hoof with dissolve
     show zecora stand with Dissolve(0.5)
-    play sound "zecoraline27.mp3"    
     z "I found this traveller lost in the Everfree, I thought you might like to see."
     hide zecora with dissolve
     "She realizes that gawking at me probably isn’t all that polite, shaking herself out of the momentary trance and extending a hoof in greeting."
@@ -405,13 +273,11 @@ label meetingtwilight:
     "She’s clearly pretty preoccupied with something. Looks like she hasn’t had a good night’s sleep in weeks."
     "The frazzled mane, the twitchy eyes... I can’t even see a lick of sunlight in this stuffy treehouse of hers behind her."
     show zecora at right with Dissolve(0.5) 
-    play sound "zecoraline28.mp3"    
     z "Perhaps now is not a good time? My friend here is lost and we thought that you might f-"
     show twilight surprised with Dissolve(0.5)
     t "Oh, no no no! Now’s a perfect time Zecora, and... Shoot, I didn’t even ask you your name!"
     a "It's [povname]!"
     t "[povname]. Very interesting. Please come in! Make yourself at home!"
-    play sound "zecoraline29.mp3"    
     z "If Twilight approves, I leave you to be safe in her hooves."
     "She leaves out the door."
     hide zecora with dissolve
@@ -1186,7 +1052,6 @@ label lyra:
     "I decide to hang out with one the ponies I met there."
     scene bg bench with dissolve
     show lyra happy with Dissolve(0.5)
-    play sound "LyraLine1.mp3"    
     l "...So what do you think? Surely you are hungry by now, it's nearly noon!"
     "Lyra positively beams at you."
     "You planned on going to ask Pinkie if she needed help with anything today, but a short detour to grab a snack with a friend won't hurt, right?"
@@ -1194,7 +1059,6 @@ label lyra:
     a "Sure, I've got time. Where's the venue?"
     show lyra hop with Dissolve(0.5)
     "Lyra jumps in excitement." 
-    play sound "LyraLine2.mp3"    
     l "This way! This way!"
     show lyra hoof with Dissolve(0.5)
     "She turns and at a brisker pace than usual, trots towards her intended location."
@@ -1204,13 +1068,11 @@ label lyra:
     scene bg diner outside with dissolve
     "You arrive at the restaurant."
     scene bg diner with dissolve
-    play sound "LyraLine3.mp3"
     show dinertable
     show lyra hoof behind dinertable with Dissolve(0.5)
     l "Oh, here! This table!"
     a "Wait... Lyra. That table already has stuff on it, we can't take that."
     "And it looks strangely fresh, too. The glasses of milkshake don't even have condensation on them yet."
-    play sound "LyraLine4.mp3"    
     l "Oh, that's fine! I ordered ahead of time, it's actually for us!"
     "She turns and beams at me again."
     "What the hell? She planned this? How long ago?"
@@ -1219,13 +1081,11 @@ label lyra:
     "You sit, expecting it to not hold your weight, but your prediction is wrong. Thankfully."
     "In front of you sits what looks like a sandwich and milkshake. Lyra has just a milkshake."
     a "...Well, where's your food?"
-    play sound "LyraLine5.mp3"    
     l "Oh, well, I already ate."
     a "Wait... then why did you...?" 
     "You let yourself trail off, unsure whether or not to confront the unicorn in front of you."
     show lyra blush with Dissolve(0.5)
     "You sigh and shake your head, and make eye contact with the now-blushing mare."
-    play sound "LyraLine6.mp3"    
     l "Heh. Well, eat up, Anon, it's on me."
     "She laughs sheepishly, a red hue forming on her face while she sips on her milkshake."
     "You roll your eyes and pick up the sandwich and take a bite."
@@ -1235,7 +1095,6 @@ label lyra:
     "You catch a glance at two ponies who seem to be gossipping about you. One of them giggles."
     "You roll your eyes again."
     show lyra surprised with Dissolve(0.5)
-    play sound "LyraLine7.mp3"    
     l "I know, I know. I just thought that maybe the first one you tried wasn't good enough! It's my favourite snack, you know."
     "It seems she's trying to get you more comfortable with the casual cuisine in Equestria, but humans didn't get where they are today by eating daffo-{w}fucking{w}-dils."
     show lyra hoof with Dissolve(0.5)
@@ -1245,7 +1104,6 @@ label lyra:
     show lyra blush with Dissolve(0.5)
     "Huh?!"
     "She gasps, entirely not expecting this suggestion, and red cheeks flare up once again."
-    play sound "LyraLine8.mp3"    
     l "Oh well, i-if you're considering, then sure..." 
     "She gives you a small smile."
     "So cute!"
@@ -1255,7 +1113,6 @@ label lyra:
     "You say simply, trying to make it look as casual as possible."
     "Lyra, on the other hand, has a shocked expression on her face, and in a lowered voice whispers to you."
     show lyra surprised with Dissolve(0.5)
-    play sound "LyraLine9.mp3"    
     l "Y-You want me to eat that s-straight from your hand?"
     "You tilt your head, almost questioningly."
     a "Of course. Why not?"
@@ -1267,7 +1124,6 @@ label lyra:
     "You giggle to yourself as you raise the bread to your face, in an attempt to hide your amusement at the situation you forced Lyra into."
     "But, she notices, and frowns a bit."
     show lyra mad with Dissolve(0.5)
-    play sound "LyraLine10.mp3"    
     l "Anon, you knew that was embarrassing, and yet you still did it."
     "Well, the cat's out of the bag, so you just let yourself have a hearty laugh."
     show lyra hoof with Dissolve(0.5)
@@ -1277,12 +1133,10 @@ label lyra:
     "Was it really that funny?"
     "Yes. Yes it was."
     "She giggles a bit."
-    play sound "LyraLine11.mp3"    
     l "Yeah, I guess Pinkie would say the same, too."
     "She's sucking down her shake nervously, as the embarrassment still lingers on her face."
     "You are casually drinking your own, feeling quite pleased with yourself."
     "She finishes first, no doubt trying to remove herself from the situation as fast as possible."
-    play sound "LyraLine12.mp3"    
     l "Hey, well, it's been fun, Anon! I'll see you some other time, okay?" 
     "She says it with a nervous smile."
     "You laugh."

@@ -14,7 +14,7 @@ init:
     $ config.keymap['dismiss'].append('mousedown_5')
     $ config.keymap['rollforward'].append('K_q')
     $ config.keymap['rollback'].append('K_w')
-define config.game_menu_music = "gamemenu.ogg"
+define config.game_menu_music = "../audio/music/gamemenu.ogg"
 screen keymap_screen():
     key "K_y" action ShowMenu('history')
 define gui.name_text_outlines = [ (0, "#000000", 2, 2) ]
