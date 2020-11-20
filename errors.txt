@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 974: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    jump afterparty
-    ^
+File "game/script.rpy", line 13: init statement expects a non-empty block.
+    init:
+         ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu Nov 19 18:19:58 2020
+Thu Nov 19 16:52:18 2020
