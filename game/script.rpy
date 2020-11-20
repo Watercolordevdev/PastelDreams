@@ -1,110 +1,11 @@
 ﻿#    if not persistent.set_volumes:
 #        persistent.set_volumes = True
 #        _preferences.volumes['music'] *= .40
-init python:
-    config.overlay_screens.append("keymap_screen")
-    if not persistent.set_volumes:
-        persistent.set_volumes = True
-        try:
-            _preferences.volumes['music'] *= .50
-        except KeyError:
-            _preferences.volumes['music'] = .50        
-    
-init:
-#this changes skip to mousewheel
-    $ config.keymap['rollforward'].remove('mousedown_5')
-    $ config.keymap['rollback'].remove('mousedown_4')
-    $ config.keymap['dismiss'].append('mousedown_5')
-    $ config.keymap['rollforward'].append('K_q')
-    $ config.keymap['rollback'].append('K_w')
-define config.game_menu_music = "gamemenu.ogg"
-screen keymap_screen():
-    key "K_y" action ShowMenu('history')
-define gui.name_text_outlines = [ (0, "#000000", 2, 2) ]
-# Declare characters used by this game. The color argument colorizes the name of the character.
-define t = Character("Twilight Sparkle", color="#800080")
-define a = Character(_("[povname]"), color="#228B22", who_outlines=[ (2, "#ffffff") ])
-define z = Character(_("Zecora"), color="#696969", who_outlines=[ (2, "#ffffff") ])
-define l = Character(_("Lyra"), color="#98ff98", who_outlines=[ (2, "#ffffff") ])
-define s = Character(_("Spike"), color="#DA70D6", who_outlines=[ (2, "#ffffff") ])
-define c = Character(_("Celestia"), color="#808080", who_outlines=[ (2, "#ffffff") ])
-define r = Character(_("Rarity"), color="#808080", who_outlines=[ (2, "#ffffff") ])
-define prd = Character(_("Pinkie and Rainbow Dash"), color="#bdcda8", who_outlines=[ (2, "#ffffff") ])
-define p = Character(_("Pinkie"), color="#FF69B4", who_outlines=[ (2, "#ffffff") ])
-define rd = Character(_("Rainbow Dash"), color="#48D1CC", who_outlines=[ (2, "#ffffff") ])
-define f = Character(_("Fluttershy"), color="#FFFF66", who_outlines=[ (2, "#ffffff") ])
-define aj = Character(_("Applejack"), color="#FFA500", who_outlines=[ (2, "#ffffff") ])
-
-
-default povname = "Anonymous"
-
-image chapter = ParameterizedText(xalign=0.5, yalign=0.3)
-
-# The game starts here.
-
-#default a = 2
-#label start:
-#  $ a = 3
-#  if a == 2:
-#    e "Do a thing"
-#  else:
-#    e "Do another thing"
-
-#List of songs: spooky.mp3 (original Everfree song), Pinkiepie.mp3, intro.mp3, mainmenu.ogg, gamemenu.ogg, mysterious.ogg, sleeping.ogg, magical.ogg, exciting.ogg, boardgame.ogg
-
-image zecora standing = im.MatrixColor(
-    "zecora stand.png", 
-    im.matrix.tint(.44,.65,.75)
-    *im.matrix.brightness(-0.07))
-    
-screen party():
-  imagebutton:
-    focus_mask "pinkiebutton_idle_img.png"
-    idle "pinkiebutton_idle_img.png"
-    hover "pinkiebutton_hover_img.png"
-    pos (583,27)
-    action Jump("pinkieparty")
-  imagebutton:
-    focus_mask "dashbutton_idle_img.png"
-    idle "dashbutton_idle_img.png"
-    hover "dashbutton_hover_img.png"
-    pos (0,70)
-    action Jump("applejackparty")
-  imagebutton:
-    focus_mask "raritybutton_idle_img.png"
-    idle "raritybutton_idle_img.png"
-    hover "raritybutton_hover_img.png"
-    pos (927,369)
-    action Jump("rarityparty")
-  imagebutton:
-    focus_mask "twilightbutton_idle_img.png"
-    idle "twilightbutton_idle_img.png"
-    hover "twilightbutton_hover_img.png"
-    pos (1267,360)
-    action Jump("twilightparty")
-  imagebutton:
-    focus_mask "fluttershybutton_idle_img.png"
-    idle "fluttershybutton_idle_img.png"
-    hover "fluttershybutton_hover_img.png"
-    pos (661,406)
-    action Jump("fluttershyparty")
-  imagebutton:
-    focus_mask "ajbutton_idle_img.png"
-    idle "ajbutton_idle_img.png"
-    hover "ajbutton_hover_img.png"
-    pos (160,405)
-    action Jump("applejackparty")
-  imagebutton:
-    focus_mask "spikebutton_idle_img.png"
-    idle "spikebutton_idle_img.png"
-    hover "spikebutton_hover_img.png"
-    pos (0,538)
-    action Jump("spikeparty")
-    
-   
+  
 
 #Todo list: Add vectors for Celestia and Twilight in and code Lyra behind the table in the diner. 
 #Make the rest of Zecora's sprites dark in the forest
+
 
 
 label start:
@@ -128,6 +29,7 @@ label start:
             
         "Lyra":
             jump lyra
+#List of songs: spooky.mp3 (original Everfree song), Pinkiepie.mp3, intro.mp3, mainmenu.ogg, gamemenu.ogg, mysterious.ogg, sleeping.ogg, magical.ogg, exciting.ogg, boardgame.ogg
 
 label anon:
     show chapter "DAY 1"
@@ -138,7 +40,7 @@ label anon:
     "Story of my life."
     "I'm on my way to work: an absolutely hellish job."
     scene bg dishwash with dissolve
-    play sound "audio/dishwashing.mp3"    
+    play sound "audio/SFX/dishwashing.mp3"    
     "The kitchen is gray and steel and everything feels muffled, except for the slamming of dishes and chattering of coworkers."
     "Worse, I'm late, which adds to my stress."
     "The restaurant is heavily frequented and it's very busy, as expected."
@@ -170,7 +72,7 @@ label anon:
     "Down."
     "Down to ...somewhere."
 label zecora:
-    play music "mysterious.ogg"
+    play music "audio/songs/mysterious.ogg"
     scene bg everfree with dissolve
     "I'm laying on the ground and something sharp is poking my leg."
     "Everything hurts."
@@ -178,10 +80,10 @@ label zecora:
     "Everything is marshy and I can hear frogs croaking and creaking."
     "Something {i}wriggles{/i} away."
     "I hear a noise."
-    show zecora standing with Dissolve(0.5)
-    play sound "hoofsteps.mp3"    
+    show zecora standing2 with Dissolve(0.5)
+    play sound "audio/SFX/hoofsteps.mp3"    
     "I hear a crashing and stomping through the brush."
-    play sound "zecoraline1.mp3"    
+    play sound "audio/voices/zecoraline1.mp3"    
     z "If mine eyes do not deceive, a strange being I do perceive!"
     "A striped horse with earrings and golden bangles around her waist approaches me."
     "I'm stunned into silence for several seconds."
@@ -189,8 +91,8 @@ label zecora:
     "I just blurt that out with no forethought."
     z "A horse I am not; though I am close, in truth. I am a zebra, and my stripes are proof."
     a "Wha- who are you?"
-    show zecora sit with Dissolve(0.5)
-    play sound "zecoraline3.mp3"    
+    show zecora sit2 with Dissolve(0.5)
+    play sound "audio/voices/zecoraline3.mp3"    
     z "Zecora is what they call me, now who might you be?"
 python:
     povname = renpy.input("What is your name?")
@@ -212,7 +114,7 @@ a "I don't know how I got here. One moment I was in the bathroom, and then I was
 z "That may be a mystery for another occasion, now come, stay close and avoid separation."
 "She turns, and makes to head down a path that leads into the forest surrounding the swampy clearing."
 "You follow her, the path soon becoming almost untraceable among into thorny vines and close trees."
-show zecora stand with Dissolve(0.5)
+show zecora standing2 with Dissolve(0.5)
 z "Here in the Everfree, there are many beasts to flee."
 a "What ...kind of beasts?"
 z "Timberwolves and Cragodiles, foul creatures full of bile."
@@ -220,16 +122,14 @@ z "Timberwolves and Cragodiles, foul creatures full of bile."
 a "I’ll make sure to look out for those."
 z "No more need for you to roam. Now come, and I shall lead you to my home."
 "I keep an eye on her so I don't lose her amidst the dense underbrush."
-show zecora with Dissolve(0.5)
+show zecora2 with Dissolve(0.5)
 "Her striped flank and gray tail sway in front of me as I walk behind her."
 "I notice certain things about her, like the fact she has outlines and the colors here are weirdly flat compared to where I just came from."
 "Plus, a {i}talking horse{/i}..."
 "What weird fairytale have I fallen into? Am I dreaming?"
 a "Is this all a dream?"
-play sound "zecoraline10.mp3"    
 z "I do not know how strange this may seem, but this is assuredly not a dream!"
 a "Really?"
-play sound "zecoraline11.mp3"    
 z "For you, this I speak true."
 a "So I'm really not home anymore..."
 "She didn't reply to that this time as I talked outloud to myself."
@@ -968,6 +868,21 @@ label pinkieparty:
     a "So you're a baker?"
     p "Oh, I'm more than that! I like to think of myself as a cook of sweets or a sweet cook."
     "She laughs at her own cheesy joke."
+    a "What's on the menu?"
+    p "More of the stuff we had before we're running low on: brownies, cupcakes, tiramisu. Would you like to try a bite?"
+    a "It's like you read my mind."
+    "She smiles and puts a bit of each on a plate for me."
+    p "Here ya go, [povname]! Eat up!"
+    a "You know, I've never had tiramisu before."
+    p "Oh, it's good. It's like coffee-flavored sweetbread."
+    "I take a bite and it's as described."
+    a "Is it hard to make?"
+    p "I can show you how to make it sometime! Twilight would really like that, if you made some for her. So you can pay the favor to her for all the times she's helped me out."
+    a "That sounds fun. Is it hard to make?"
+    p "The hardest part is just getting all the ingredients and boiling water. Can you boil water, [povname]?"
+    "I don't answer, being teased."
+    p "It'll be super easy, you'll see! Come by anytime!"
+
     jump afterparty
     
 label spikeparty:
@@ -1037,9 +952,24 @@ label twilightparty:
     "She looks busy in her own thoughts."
     jump afterparty
 label rarityparty:
-    "I go over to where Rarity is lounging on a loveseat."
-    "She perks up as I approach."
-    r "Hello darling."
+    r "Did you know you have a hole, dear?"
+    "I turn red, not understanding her. She coos and points with her hoof at a rip in my hoodie."
+    a "I-I didn't. But I don't have..."
+    r "Don't have what?"
+    a "A change of clothes."
+    r "Oh, how terrible! We can't let that go unsolved."
+    "She gives me a business card of hers with a cute little logo of a horse with a saddle and dress."
+    "You don't tell her you already have a map Celestia gave you."
+    r "Just stop by here and I'll show you what I can do. Just have Twilight or Fluttershy measure you first."
+    "You scratch your head."
+    a "I didn't know they did that."
+    r "Yes, they're used to helping me out! And it's our duty as your friends to make sure you're presentable. We can't have you going around in shaggy ripped clothing."
+    "She puts her hoof on your shoulder and moves the other in an arc."
+    r "Just imagine! We could start an entirely new line you can model for me with your unique anatomy."
+    a "Aw. I thought you liked me."
+    r "I {i}do{/i} like you. But think of the possibilities!"
+    a "Well, just having a spare set of clothing would be good..."
+    "Rarity nods eagerly, and I part from her for other party activities."
     jump afterparty
 label fluttershyparty:
     "I make my way over to Fluttershy, who is huddled near a large palm plant, the leaves shading her."
@@ -1087,14 +1017,68 @@ label rainbowdashright:
     aj "Then Ah guess we'll never know! My precious apple trees have been raised since Ah was a filly."
     aj "Seeing one struck down is like losing a family member."
     "Rainbow Dash softens and gives her a hug. Applejack pushes her away, still smiling."
-    aj "I don't need a hug cause it ain't happenin'!"
-    
-    
-   
+    aj "I don't need a hug cause it ain't happenin'!"   
     jump afterparty
 
 label afterparty:
     "We played pin the tail on the pony and bobbed for apples the rest of the night."
+    "The sun had long ago set and the party was beginning to wind down."
+    "Rarity had already left, citing her need for beauty sleep and Fluttershy had gone to check on her animals."
+    "I walk over to Twilight who had just finished a conversation with Rainbow Dash."
+    a "This was quite some party."
+    t "I'll say, Pinkie went all out on the activities. Nobody can put together a party like she can."
+    "I stand there for a moment with her."
+    "Starting to feel a little tired after the night, I try to bring up the topic of getting some rest."
+    a "So how long do these things usually last?"
+    t "As long as there's another pony, Pinkie will keep the party going."
+    "Possibly getting the hint, she continues:"
+    t "We don't have to stay here much longer. It's getting pretty late and Spike needs his rest, he is a baby dragon after all."
+    "We walk over to where Spike is cheering on an intense twister match between Applejack and Pinkie Pie."
+    "I don't even know how Pinkie is able to contort into such shapes, the pony body doesn't seem like it should be able to move like that."
+    "She's practically tied herself into a knot."
+    t "C'mon Spike, time to go home."
+    s "Aww, but this match was starting to get good!"
+    t "Time to go. I'm sure Pinkie will have more twister matches in the future."
+    "As we're preparing to go:"
+    p "Wait! You guys are leaving?"
+    "Pinkie shouts from her concerning position on the twister mat."
+    t "It's getting pretty late. Spike needs his rest and Anon is still recovering from his journey here."
+    p "Well okie dokie then! Be sure to stop by another day to try out some of our treats!"
+    a "Will do."
+    "As I turn to leave with Twilight I am sure to say goodbye to everypony else."
+    a "Goodbye everypony."
+    r "See ya!"
+    p "Bye!"
+    aj "Nice to meet you!"
+    "Applejack's response seemed a little strained from the game."
+    "Walking out into the cool of night with Twilight and Spike, there is a bright moon to light the way."
+    "Initially there is silence."
+    a "You've got some nice friends Twilight."
+    t "I'm glad to hear you like them. They're some of the best friends a pony can ask for."
+    "Spike nods his head in agreement."
+    "Another pause."
+    a "You know, this place is a lot different from home, but I think I'm warming up to it."
+    s "You think that was fun, just wait until we have our annual running of the leaves festival! Everypony in town will be there!"
+    "Twilight chuckles at Spike's excitement."
+    t "Well I'm glad you liked it. I know it can be hard to adapt to a new place. I certainly had my challenges when I came to Ponyville."
+    a "So you're not from around here?"
+    s "Nope! We used to live in Canterlot until Celestia sent Twilight to go make some friends?"
+    a "Go make some friends?"
+    "Slightly embarrassed, Twilight responds:"
+    t "I, used to be a little bit of a shut in."
+    s "A little bit? More like a lot of bit!"
+    t "Calm down now Spike. Celestia sent me to help with the summer sun celebration here and meet some new ponies while I'm at it. That's how I came to get such good friends."
+    a "Never had a huge crowd of friends back home. I guess a new place is a good excuse for any of us to make new friends."
+    "Silence."
+    "The treebrary begins to come into view."
+    "Twilight opens the door and we file inside."
+    t "Tomorrow we'll see more about how you got here. Maybe see if there's a way back, but as long as you're here you're welcome at the treebrary."
+    a "Thank you Twilight. That's very nice of you."
+    "Everyone heads off to their respective sleeping locations."
+    "Before I go to sleep I think about going home and the lackluster life I would return to."
+    "I then think about how nice the ponies and everything is here."
+    "I could certainly do with more of a place like this in my life."
+    a "I have to wonder, even if I can go back, do I want to?"
     
 
 label prank:

@@ -47,10 +47,26 @@ image chapter = ParameterizedText(xalign=0.5, yalign=0.3)
 #  else:
 #    e "Do another thing"
 
-#List of songs: spooky.mp3 (original Everfree song), Pinkiepie.mp3, intro.mp3, mainmenu.ogg, gamemenu.ogg, mysterious.ogg, sleeping.ogg, magical.ogg, exciting.ogg, boardgame.ogg
+#Zecora images
 
-image zecora standing = im.MatrixColor(
-    "zecora stand.png", 
+image zecora = "characters/zecora/zecora.png"
+image zecora standing = "characters/zecora/zecora_stand.png"
+image zecora back = "characters/zecora/zecora_back.png"
+image zecora front = "characters/zecora/zecora_front.png"
+image zecora sit = "characters/zecora/zecora_sit.png"
+
+image zecora standing2 = im.MatrixColor(
+    "characters/zecora/zecora_stand.png", 
+    im.matrix.tint(.44,.65,.75)
+    *im.matrix.brightness(-0.07))
+    
+image zecora sit2 = im.MatrixColor(
+    "characters/zecora/zecora_sit.png", 
+    im.matrix.tint(.44,.65,.75)
+    *im.matrix.brightness(-0.07))
+    
+image zecora2 = im.MatrixColor(
+    "characters/zecora/zecora.png", 
     im.matrix.tint(.44,.65,.75)
     *im.matrix.brightness(-0.07))
     
