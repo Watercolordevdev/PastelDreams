@@ -4,7 +4,7 @@
     menu:
 
         "Where do you want to go?"
-        
+
         "Start":
             jump anon
 
@@ -13,10 +13,10 @@
 
         "Twilight":
             jump meetingtwilight
-            
+
         "Celestia":
             jump celestia
-            
+
         "Lyra":
             jump lyra
 #List of songs: spooky.mp3 (original Everfree song), Pinkiepie.mp3, intro.mp3, mainmenu.ogg, gamemenu.ogg, mysterious.ogg, sleeping.ogg, magical.ogg, exciting.ogg, boardgame.ogg
@@ -25,59 +25,78 @@ label anon:
     show chapter "DAY 1"
     $renpy.pause(2, hard=False)
     scene black
-    play music "/audio/music/intro.mp3"   
-    "Another dead-end night, just the same thing, over and over."
-    "Story of my life."
-    "I'm on my way to work: an absolutely hellish job."
+    play music "/audio/music/intro.mp3"
+    "You."
+    "Are Anonymous."
+    "And it's Another dead-end night, just the same thing, over and over."
+    "Story of your life."
+    "You're on your way to work: an absolutely hellish job."
     scene bg dishwash with dissolve
-    play sound "audio/sfx/dishwashing.mp3"    
+    play sound "audio/sfx/dishwashing.mp3"
     "The kitchen is gray and steel and everything feels muffled, except for the slamming of dishes and chattering of coworkers."
-    "Worse, I'm late, which adds to my stress."
+    "Worse, You're late, which adds to your stress."
     "The restaurant is heavily frequented and it's very busy, as expected."
     "It's very stressful."
     scene bathroom with dissolve
-    stop sound 
-    "I manage to find a time when I'm not being assaulted by dishes, and I use that window of time to go the bathroom, bringing my phone with me."
-    "The lights are motion-activated and turn off automatically as I sit there on the pot, messing with my phone."
-    "I'm used to it, though."
-    "You know what they say: boss makes a dollar, I make a dime, and that's why I poop on company time."
-    "Bored and depressed, I click the new 4chan board /mlp/ to see what it was about."
-    "I mispress the ad with my thumb trying to scroll down."
-    "A window opens up on my phone's browser."
+    stop sound
+    "You manage to find a time when you're not being assaulted by dishes, and you use that window of time to go the bathroom, bringing your phone with you."
+    "The lights are motion-activated and turn off automatically as you sit there on the pot, messing with your phone."
+    "You are used to it, though."
+    "You know what they say 'boss makes a dollar, I make a dime, and that's why I poop on company time.'"
+    "You're browsing the channels when you spot a new board."
+    "/mlp/"
+    "Bored and curious, You click the new 4chan board to see what it is about."
+    "The page loads on your screen however-"
+    "You mispress an ad with your thumb, trying to scroll down."
+    "A window opens up on your phone's browser."
     a "Damn..."
     "Suddenly, everything flashes."
-    "I realize that after a while in the darkness, I can't really feel anything or see much beyond the available light the phone gives off."
-    "I attempt to reach out to find a wall with no success."
-    "Okay, I'm really panicking now!"
-    "I'm freaking out and a bead of sweat rolls down my face."
-    "I've never done drugs, am I tripping right now? Did someone spike my Powerade while I was working and distracted?"
-    "I feel myself being pushed."
-    "I'm being moved, slowly, but it's noticeable."
-    "My speed accelerates and I yell out in surprise."
-    "Faster and faster, I keep moving until I can barely breathe due to the forces impinging on my body."
-    "A very faint white light comes into view, coming closer and closer until it encompasses my vision completely."
-    "I begin to slow down, almost to a standstill."
-    "The spectacle lasts a while until, like clouds parting to let the sun shine through, the darkness opens up to lush green below." 
-    "I feel the forces of gravity take hold of my body once again, and I begin to fall."
+    "You realize that after a while in the darkness, you can't really feel anything or see much beyond the available light your phone gives off."
+    "Stashing your phone, you attempt to reach out to find a wall with no success."
+    "It's at this point that you begin to really start panicking!"
+    "You're freaking out and a bead of sweat rolls down your face."
+    "You're wondering if someone spiked your Powerade whilst you were working?"
+    "No... that can't be. Powerade sucks dick and nobody would waste money on drugging a nobody like you."
+    "You feel your body being pushed. An external force being exhibited equally over your body towards a common direction."
+    "You're being moved, slowly, but it's noticeable."
+    "Your speed accelerates and you yell out in surprise."
+    a "Whoa! Fuck!"
+    "Faster and faster, you keep moving until you can barely breathe due to the forces impinging on your body."
+    "A very faint white light comes into view."
+    "It's coming closer..."
+    "And closer..."
+    "Until the light encompasses your vision completely."
+    "..."
+    "..."
+    "..."
+    "..."
+    "You begin to slow down, almost to a standstill."
+    "The spectacle lasts a while until, like clouds parting to let the sun shine through, the darkness opens up to lush green below."
+    "You feel the forces of gravity take hold of your body once again, and you begin to fall."
     "Down."
     "Down to ...somewhere."
 label zecora:
     play music "/audio/music/mysterious.ogg"
     scene bg everfree with dissolve
-    "I'm laying on the ground and something sharp is poking my leg."
+    "You're laying on the ground and something sharp is poking your leg."
     "Everything hurts."
-    "Slowly, I begin to sit up and observe my surroundings."
-    "Everything is marshy and I can hear frogs croaking and creaking."
-    "Something {i}wriggles{/i} away."
-    "I hear a noise."
+    "Slowly, you begin to sit up and observe your surroundings."
+    "Everything is marshy and you can hear frogs croaking and creaking."
+    "In-between the treeline, Something {i}wriggles{/i} away."
+    "Dark green shrubbery and foreign flora line the boundary between the clearing you're in and the trees."
+    "You hear a noise behind you..."
     show zecora standing with Dissolve(0.5)
-    play sound "audio/sfx/hoofsteps.mp3"    
-    "I hear a crashing and stomping through the brush."
+    play sound "audio/sfx/hoofsteps.mp3"
+    "You hear a crashing and stomping through the brush."
     z "If mine eyes do not deceive, a strange being I do perceive!"
-    "A striped horse with earrings and golden bangles around her waist approaches me."
-    "I'm stunned into silence for several seconds."
+    "A striped horse with earrings and golden bangles around her waist approaches you."
+    "An aroma akin to fresh cut grass only now permeates your nose."
+    "You're stunned into silence for several seconds."
     a "Oh my God, it's a talking horse!"
-    "I just blurt that out with no forethought."
+    "You just blurted that out with no forethought."
+    #If interactions are going to be a thing. maybe make this a choice to stay nonchalant and cool or to just straight up blurt that out. I can image Zercora wouldn't like that very much kek
+    "Good job retard."
+    "You see her brow furrow for a moment before relaxing."
     z "A horse I am not; though I am close, in truth. I am a zebra, and my stripes are proof."
     a "Wha- who are you?"
     show zecora sit with Dissolve(0.5)
@@ -88,49 +107,74 @@ python:
 
     if not povname:
         povname = "Anonymous"
-    
+
 a "My name is [povname]!"
 z "[povname] then? I think we will be friends."
 a "I'm glad to make your acquaintance, Zecora."
-"You stick your hand out, as if to shake the strange equine's hand." 
+"You."
+"Are [povname]."
+"And you've just introduced yourself to a zebra."
+"You stick your hand out, as if to shake the strange equine's hand."
 "Before you can realize she has no hands to shake, Zecora puts a hoof in your palm and somehow delivers a firm, vigorous shake."
-"With that, you stand up and out of the brush you found yourself in."
+"With that, you stand up and out of the lone brush you found yourself in."
 z "So tell me, friend, just when did that bush meet your rear end?"
 a "Just now actually..."
-z "I thought so, but I wished to check, for something has left these bushes a wreck."
-a "I don't know how I got here. One moment I was in the bathroom, and then I was here."
+z "I thought so, but I wanted to check, why is it you decided to leave that bush in a wreck?"
+"You think to yourself on how to not sound like an idiot."
+"You can't just straight up tell her how you got here..."
+"You doubt even you know."
+"Zecoras head tilts slightly at this pause. Eyes firmly locked onto yours as you gaze elsewhere recounting the recent past."
+a "I don't know. One second I was {i}working{/i} and the next everything went black."
+a "{alpha=0.1}Maybe this is all just a dream and I'm passed out on the john.{/alpha}"
+a "{alpha=0.1}Oh man, my boss is so gonna fire my shit stained ass.{/alpha}"
 z "That may be a mystery for another occasion, now come, stay close and avoid separation."
 "She turns, and makes to head down a path that leads into the forest surrounding the swampy clearing."
 "You follow her, the path soon becoming almost untraceable among into thorny vines and close trees."
+"As you wonder behind her your eyes look further into the dense forest."
+"The further you look into the forest the harder it becomes to make out any details."
+"You swear there is something in there looking back at you."
+"Maybe a great many things."
+"Whatever it is, you decide to close the distance slightly with Zecora."
+"She seems slightly tense."
+"Her eyes dart from place to place occasionally but her speed remains steady and constant."
 show zecora standing2 with Dissolve(0.5)
 z "Here in the Everfree, there are many beasts to flee."
 a "What ...kind of beasts?"
 z "Timberwolves and Cragodiles, foul creatures full of bile."
-"Timberwolves and ‘Crag’-odiles?  Looks like I’m not in Kansas anymore."
+"Timberwolves and ‘Crag’-odiles?  Wherever you are, you're definitely not home anymore."
 a "I’ll make sure to look out for those."
 z "No more need for you to roam. Now come, and I shall lead you to my home."
-"I keep an eye on her so I don't lose her amidst the dense underbrush."
+"You keep an eye on her so you don't lose her amidst the dense underbrush."
 show zecora2 with Dissolve(0.5)
-"Her striped flank and gray tail sway in front of me as I walk behind her."
-"I notice certain things about her, like the fact she has outlines and the colors here are weirdly flat compared to where I just came from."
+"Her striped flank and gray tail sway in front of me as you walk behind her."
+"you notice certain things about her, like the fact she has outlines and the colors here are weirdly flat compared to where you just came from."
 "Plus, a {i}talking horse{/i}..."
-"What weird fairytale have I fallen into? Am I dreaming?"
-a "Is this all a dream?"  
+"What sort of loopyland have you gotten yourself into."
+a "Is this all a dream?"
 z "I do not know how strange this may seem, but this is assuredly not a dream!"
 a "Really?"
 z "For you, this I speak true."
+"Even if it was a dream, you're not sure what you'd do."
 a "So I'm really not home anymore..."
-"She didn't reply to that this time as I talked outloud to myself."
-"Mud is caking my boots, and dirt is splattered on my jeans. My uniform is rumpled now."
+"She didn't reply to that this time."
+"Mud is caking your shoes, and dirt is splattered on your jeans. Your uniform is rumpled now."
 "She looks back at me with piercing blue eyes."
 z "Don't worry your aching feet, our journey is nearly complete."
+"Zecora then turns back, weaving through some outstretched branches."
+"You try to follow but your clothes get snagged."
+"But nonetheless you power through, paying no mind to the slight hindrance."
+"Some of the branches are so dry they snap off."
+"Some of the branches are so wet they bend with your intruding physique."
+"The rest however, rip patches off your uniform exposing your bare flesh."
+"You only notice this sometime after however, when a cool breeze wafts through and chills various patches of your skin."
+a "Give me a fucking break..."
 scene bg zecora tree with dissolve
 play music "/audio/music/spooky.mp3"
 show zecora back with Dissolve(0.5)
 "She approaches a massive tree decorated with masks and bottles hanging from ropes."
 "Zecora pushes aside some leaves and trots up to the door."
 "She stamps her hooves to knock off detritus and goes inside, holding the door open for me."
-"I have to bend down to go inside."
+"You have to bend down to go inside."
 scene bg hut with dissolve
 show zecora sit with Dissolve(0.5)
 z "Come in, come in, [povname] you are welcome here and have nothing to fear. Since Ponyville is farther away, here you will stay."
@@ -140,15 +184,16 @@ z "Hungry you might be after our trek, but I will take the time to check. If you
 a "A deal?"
 z "Trade me some of your clippings of nail, for future spells without fail."
 a "Well, that's a little weird but okay."
-"She passes me some nail clippers in an anatomically-impossible fashion with her hoof. I take them and do as she asks, clipping my fingernails."
+"She passes you some nail clippers in an anatomically-impossible fashion with her hoof. You take them and do as she asks, clipping your fingernails."
 a "Uh, you're not going to be casting these future spells on me, are you? Or cursing me?"
 show zecora front with Dissolve(0.5)
 z "No, such a thing I would not do, or my luck would be shot through."
 "She collects the fingernail shavings, humming to herself, and then puts them in a jar."
 show zecora with Dissolve(0.5)
 z "I am a collector by nature, now let me label it by nomenclature. What manner of creature are you, just between us two?"
-a "I'm known as a human."
-"I say it with a slight grimace. This is all so silly. Any minute now, I'd surely be whisked back suffering from a headache..."
+a "Human. I'm a human."
+"You say it with a slight grimace. It's not everyday someone asks you what you are, it makes you feel silly."
+"Any minute now, you'd surely be whisked back suffering from a headache..."
 "Any minute..."
 "She writes the word in ink with a feather and a flourish."
 z "As agreed, I will prepare dinner for us, so simply wait there without a fuss."
@@ -160,97 +205,136 @@ scene zecora stir with dissolve
 "Time passes."
 scene bg hut with dissolve
 show zecora with Dissolve(0.5)
-"Zecora gets two bowls, two spoons, ladles out the hot soup into the bowls, and puts them on the table. I pull up an extra chair and sit down at the table."
-"I'm having supper with a talking witch zebra."
-"This is my life now..."
-"I dip my spoon in and eat some of the soup."
+"Zecora gets two bowls, two spoons, ladles out the hot soup into the bowls, and puts them on the table."
+"You pull up an extra chair and sit down at the table."
+"You're having supper with a talking witch zebra."
+"This is your life now..."
+"You dip your spoon in and eat some of the soup."
 "She's watching me."
 show zecora sit with Dissolve(0.5)
 z "[povname], is it good to eat? Self-grown veggies are for me a treat!"
 a "Yeah, it's good! Very savory."
-"I chew the pasta noodles with gusto. The vegetables are mixed in and the broth is decent. Very tomato-ey."
-a "Mmmm."
+"You chew the pasta noodles with gusto. The vegetables are mixed in and the broth is decent. Very tomato-ey."
+a "{i}Mmmh{/i}"
 z "The carrots are the hardest to grow, but they are my favorite though."
 a "I see. Is it hard to always speak in rhyme like that?"
 z "Practice makes for perfection, rhyming becomes a natural skill with some direction."
-"I empty my bowl and the grey zebra takes it and places it in the sink with hers. She washes them. I start to protest but she shakes her head."
+"You empty your bowl and the grey zebra takes it and places it in the sink with hers. She washes them. You start to protest but she shakes her head."
 show zecora with Dissolve(0.5)
 z "As a guest, it would not do. Sit back, relax, and I will find a place for you."
 "She smiles at me after scrubbing the bowls with soap and rinsing them and placing them on a towel."
 z "I have just the thing, just you wait, it's like I knew you were coming through fate."
 "She pulls out some bit of cloth, unrolls it, and attaches it to rings on the wall and the roof."
-"After she's done, I realize she's hung up a hammock for me."
+"After she's done, you realize she's hung up a hammock."
 a "Thank you. I'm not ready to lie down yet."
 z "It's good to be ready, you do look unsteady."
 a "I do?"
-"She's right, that walk must have taken more out of me than I thought. I sit in one of her chairs."
-"Hmm..."
-"I look around..."
+"She's right, that walk must have taken more out of you than you thought. You sit in one of her chairs."
+a "Hmm..."
+"You look around..."
 "No television here..."
 a "What do you do to pass the time around here?"
 z "I often read a book borrowed from Twilight, when it comes to the night."
-z "Speaking of her, on the morrow, we'll visit her since with mysteries, she is most thorough." 
+z "Speaking of her, on the morrow, we'll visit her since with mysteries, she is most thorough."
 a "O-oh, okay. Do you have a book I could read?"
 show zecora back with Dissolve(0.5)
 z "Many such books, if you want to take a look."
 "She gestures to her bookshelf, inviting me to head over."
-"I take a deep breath, and pull out a random book off the shelf."
-"It's a book about pony magic. I start reading it but it doesn't really make sense to me."
-"I try the next one."
-"It's a book with a blushing pony on the cover in the arms of a stallion. I leaf through it experimentally."
+"You take a deep breath, and pull out a random book off the shelf."
+"It's a book about pony magic."
+"You try the next one."
+"It's a book with a blushing pony on the cover in the arms of a stallion."
 show zecora stand with Dissolve(0.5)
 z "Oh, that is a good one, reading it will be fun. Don't judge the book by its cover, it's a tale of adventure about her lover."
-"You know, what the hell. I never read these but maybe a horse romance could be interesting."
-"First day in a new world, after all."
-"I sit down in one of her chairs and read through it."
-"At first, I'm not taken in. It just reminds me of my first girlfriend, who used me for my car and job and I'm thinking about that instead."
-"Eventually, I get caught up in the drama. Her husband is actually a time traveler and he has to get them back to their original time period."
-"She has to take up arms to defend him and learn how to time travel herself."
-"It definitely wasn't what I expected."
-"I don't finish it, I only get about a quarter of the way through before I start feeling tired."
+menu:
+    "What to read?"
+
+    "Pony Mahoko":
+        "You know, what the hell. Maybe if you stare at the pages long enough you might pick something up."
+        "You flip through the pages, looking for anything that spikes your interest."
+        "You're surprised to find that for the most part it is written in english. But the rest-"
+        "The longer you look at it the more your head starts to hurt."
+        "A common trait you found with the few illustrations you see is that all these ponies have a horn."
+        "And looking at Zecora from halfway across the room. You're fairly sure she doesn't have a horn."
+        "Interesting."
+        a "Hey Zecora, what are you doing with a book on... uh, 'Magic?'"
+        z "Skip to page 92, tell me what meets your eager-view."
+        "So you do, half the page is empty with plenty more empty pages as you go."
+        "Looking at the entry on the page and the pages before reveals illustrations of various looking fawna and beasts."
+        a "A Bestiary and flora catalogue..."
+        z "Twilight has asked my help to learn more about the everfree, so she handed me one of her journals to write as I please."
+        z "I have gotten it to a point where I believe she will learn much. Though I must admit, I may not have an artists touch..."
+        "You look back into the book, some illustrations are heavy with chicken scratches and some have been redone completely."
+        "Her artistic capabilities must be proportionally inverse to her lyrical craft you assume."
+        a "They look great Zecora, think I'll keep taking a look at this."
+        "You don't lift your head from the book, but from your periphery you could swear you see her face flush for a moment before she turns away quickly."
+        "You can see the part where Zecora takes over from Twilights entries and start reading from there."
+        "You can tell because the entries all start to rhyme for some inconspicuous reason..."
+        "You spend the rest of your time awake educating yourself about the everfree." # Probably have a flag here say that Anon now has some knowledge about everfree stuff. Could be useful if they get into a spot of trouble in the everfree later.
+        "Time passes."
+
+    "Romance book":
+        "You know, what the hell. I never read these but maybe a horse romance could be interesting."
+        "First day in a new world, after all."
+        "You sit down in one of her chairs and read through it."
+        "At first, You're not taken in. It just reminds you of your first girlfriend, who used you for your car and job and you're thinking about that instead." # This seems oddly specific, is whoever wrote this stealth blogposting? fuckin lmao
+        "Eventually, you get caught up in the drama. Her husband is actually a time traveler and he has to get them back to their original time period."
+        "She has to take up arms to defend him and learn how to time travel herself."
+        "It definitely wasn't what you expected."
+        "You don't finish it, you only get about a quarter of the way through before you start feeling tired."
+
 "I give a big yawn."
+"You shut the book and place it back on its shelf where you got it from"
 a "Hey, I'm going to bed now."
 show zecora sit with Dissolve(0.5)
 z "Have a good rest and goodnight, be sure to sleep tight."
 scene black with dissolve
-"I climb into the hammock she's hung and she comes over to give me a pillow."
-"I'm swinging slightly from side to side. The linen fabric of the hammock is soft enough."
-"I punch the pillow to soften it, which she watches perplexed and then lay my head down on it."
+"You climb into the hammock she's hung and she comes over to give you a pillow."
+"You're swinging slightly from side to side. The linen fabric of the hammock is soft enough."
+"You punch the pillow to soften it, which she watches perplexed and then lay your head down on it."
 "Zecora does something with some natural material, sorting it."
 "It's quiet enough and the light is low, except for her candle."
-"Still, I toss and turn from side to side."
-"I have trouble getting to sleep or, rather, relaxing."
-"At some point, I'm experiencing something weird."
+"Still, You can't help but toss and turn from side to side."
+"You have trouble getting to sleep or, rather, relaxing." #More blogposting? what?
+"At some point, you experiencing something weird."
 "It's familiar snippets."
-"It's after I've moved into my new apartment and I've been living day to day with no ambitions."
-"My girlfriend left me, my family doesn't talk to me and I'm on unemployment."
-"Half my stuff is still in boxes, untouched. I just get it out of the box when I need it."
-"In my dream, I trip over a box and it spills open, releasing more boxes around me."
+"It's after you've moved into your new apartment and you've been living day to day with no ambitions."
+"Your old girlfriend left you, your family doesn't talk to you and your on unemployment." #I don't see how this contributes to the overal story. I think whoever wrote this is self-inserting while blocking off other anons from self-inserting as themselves. Don't be a greedy asshat man c'mon
+"Half your stuff is still in boxes, untouched. You just get it out of the box when you need it."
+"In your dream, you trip over a box and it spills open, releasing more boxes around you."
 "The walls close in."
 "Then this weird presence comes in and everything goes back to how it was before."
-"I'm left in an empty apartment."
+"You're left in an empty apartment."
 "Suddenly..."
-"In the morning, a gentle touch wakes me."
+"In the morning, a gentle touch wakes you."
+"You stir in your hammock, you still feel tired."
 show zecora front with Dissolve(0.5)
+"Opening your eyes you can see Zecora, her eyes soft and locked onto yours."
+"Her gentle smile eases you and her hoof has not left contact with your person."
 z "Now is the time we must walk again, and go where you have not been."
+a "Good morning to you too."
 scene bg everfree with dissolve
 "The sun is barely piercing the trees outside and a gloomy fog clings to the ground."
+"A morning chill reverberates throughout the landscape and is further emphasised by your patches of torn clothing."
 "You walk beside her."
-"Once again, you wished you had a pair of boots on."
-"Well, it's not as far as when you first ran into Zecora."
+"A little closer than yesterday, in hopes that maybe you could sap some of her body heat to stave off this cool morning air."
+"You wished you had a pair of boots on instead of these crummy shoes. It would've made the last... 10 mud puddles somewhat bareable."
+"Well, your walk is not as far as when you first ran into Zecora."
 scene bg ponyville with dissolve
-"The trees break and you see a quaint little town with yellow roofs for the first time."
+"The trees break and you see a quaint little town with yellow thatched roofs for the first time."
 jump meetingtwilight
+
+# --- Need to update to 2nd person from here onward
 
 label meetingtwilight:
     play music "/audio/music/chill.mp3"
     scene bg library day with dissolve
-    "We walk through the streets and ponies gawp at us." 
+    "We walk through the streets and ponies gawp at us."
     "Well, no, me. They gawk at me."
     "Zecora stops in front of what I assume is our destination."
     "There's a massive tree here formed into a house with windows and doors directly in the trunk."
     "Zecora leaves me to marvel at this impressive natural structure while she hammers a rhythmic knock onto the door."
-    
+
     "While you two are standing in the street, a pink pony with a poofy mane walks up."
     show pinkie gasp with Dissolve(0.5)
     "She sees you and gasps loudly."
@@ -269,11 +353,11 @@ label meetingtwilight:
     "She realizes that gawking at me probably isn’t all that polite, shaking herself out of the momentary trance and extending a hoof in greeting."
     show twilight surprised with Dissolve(0.5)
     t "Gosh, where are my manners? I’m Twilight Sparkle, and I’m... actually in the middle of... "
-    show twilight annoy at left with Dissolve(0.5) 
+    show twilight annoy at left with Dissolve(0.5)
     t "SPIKE! {w} SPII-IIKE! Have you seen my copy of Enigmatic Enchantments and Cryptic Curiosities?"
     "She’s clearly pretty preoccupied with something. Looks like she hasn’t had a good night’s sleep in weeks."
     "The frazzled mane, the twitchy eyes... I can’t even see a lick of sunlight in this stuffy treehouse of hers behind her."
-    show zecora at right with Dissolve(0.5) 
+    show zecora at right with Dissolve(0.5)
     z "Perhaps now is not a good time? My friend here is lost and we thought that you might f-"
     show twilight surprised with Dissolve(0.5)
     t "Oh, no no no! Now’s a perfect time Zecora, and... Shoot, I didn’t even ask you your name!"
@@ -318,7 +402,7 @@ label meetingtwilight:
     t "Well, I, uh..."
     "She reverts back to her original position, satisfied with her analysis."
     "Twilight turns to Spike."
-    t "Spike, take a letter, please." 
+    t "Spike, take a letter, please."
     "Spike procures an empty piece of parchment from... somewhere."
     t "Dear Princess Celestia, I write to you today not on the subject of friendship, but on the subject of a more serious matter."
     t "Zecora has come across a strange... creature, resembling a monkey, except it can talk, and it walks on two legs!"
@@ -343,7 +427,7 @@ label meetingtwilight:
     a "Sure, okay."
     "I find myself with nothing to say. My mind is reeling with so many questions it's overwhelming. So I just stand there feeling a little awkward, waiting for the Princess's response."
     "Twilight seems to be in a similar position, having exhausted her seemingly endless supply of questions about my physical attributes."
-    "Spike, seeming bored, gets up and begins to clean the place up, opening a window and letting the stale air flow out." 
+    "Spike, seeming bored, gets up and begins to clean the place up, opening a window and letting the stale air flow out."
     "I finally found something to say."
     a "...I'm not going to get killed, am I?"
     "I didn't really think I was going to be killed, but I thought asking a serious question would be met with a serious answer."
@@ -404,7 +488,7 @@ label meetingtwilight:
 
         "With cream and sugar.":
             jump creamsugarcoffee
-            
+
         "Extra sugar":
             jump sugarcoffee
         "I hate coffee.":
@@ -430,7 +514,7 @@ label nocoffee:
     a "I don't take it because, actually, I hate coffee."
     "She frowns slightly and turns on the tap to fill the cup with water. She passes the cup to me."
     jump twilight2
-    
+
 label twilight2:
     t "Here you go, [povname]."
     a "Thanks, Twilight."
@@ -458,12 +542,12 @@ label twilight2:
     t "R-really?"
     a "Definitely."
     "Time passes."
-    
+
 
 label celestia:
     scene bg ponyville with dissolve
     "Twilight escorts me into the center of town, and finally I have a chance to get a look at the hustle and bustle of Ponyville proper."
-    "It’s very quaint. Couldn’t be further from life back home." 
+    "It’s very quaint. Couldn’t be further from life back home."
     "No chugging of machinery or roar of car engines. No smoke or pollution or piss-stained alleys."
     "The buildings are thatch-roofed, quite a bit smaller than I’m used to. I’d have to stoop just to step through the front door."
     "Along with the homespun architecture seems to be a pervasive friendliness."
@@ -491,7 +575,7 @@ label celestia:
     t "Sorry! Sorry, Princess! I was just in such a hurry to inform you about Anon and I-"
     hide twilight surprised
     show celestia smile with Dissolve(0.5)
-    c "Worry not." 
+    c "Worry not."
     "She silences Twilight with a gentle wave of her hoof."
     c "I've already taken care of things. I stayed up to make a welcome packet for you on Ponyville customs and other information you'll need."
     "She hands you a folder with multiple pages."
@@ -536,7 +620,7 @@ label celestia:
     t "Oh no! I'll make sure he makes it there on time!"
     c "Right, well, I'll see you there!"
     a "Right... "
-    
+
 label preparty:
     scene bg library with dissolve
     t "Pinkie's parties are just the greatest!"
@@ -566,7 +650,7 @@ label preparty:
     "In pony...?"
     "Fuck this shit."
     "I let out a sigh as I stand up."
-    a "It's nearly time, right?" 
+    a "It's nearly time, right?"
     "I point to the clock on the wall."
     "3:46 PM"
     "Twilight turns to face me."
@@ -641,7 +725,7 @@ label party:
     "All the other ponies laugh at the spectacle."
     "Ah man, that's embarrassing."
     "Quickly picking myself up, I address the pink one."
-    a "Uh, hey there. Pinkie, right?" 
+    a "Uh, hey there. Pinkie, right?"
     "She gasps again."
     "Christ..."
     p "Wow, you already know my name you're really on the ball, I haven't even gotten to know your name yet-"
@@ -695,8 +779,8 @@ label party:
     s "Absolutely, thank you!"
     "He greedily eats the entire cookie in a single bite, much to the apparent disgust of Rarity, who recoiled slightly at the sight."
     "Spike notices her reaction, and wipes his mouth of any remaining crumbs."
-    s "Oh. Whoops. Sorry Rarity." 
-    r "That's okay, dear." 
+    s "Oh. Whoops. Sorry Rarity."
+    r "That's okay, dear."
     "She trails off."
     "She's not okay with it."
     r "Well I'm afraid I must be getting along now. [povname], it was nice meeting you. Hopefully, we will see each other around sometime, yes?"
@@ -709,7 +793,7 @@ label party:
     s "I think I just scored a negative on the attraction scale... "
     "Wait."
     "Spike likes Rarity?"
-    a "That's alright. Maybe next time, tiger." 
+    a "That's alright. Maybe next time, tiger."
     "I attempt to console the baby dragon."
     "Damn, I'm no good at this. Spike just sighs again, not hearing my words of encouragement."
     s "Yeah, maybe... I'll catch you around, Anon."
@@ -740,8 +824,8 @@ label party:
     rd "Oh, you know it. Wanna come watch me sometime?"
     "I don't have any reason to say no."
     a "Sure. That sounds good to me."
-    rd "Yes!" 
-    "Rainbow Dash jumps a little in excitement." 
+    rd "Yes!"
+    "Rainbow Dash jumps a little in excitement."
     "It would be pretty interesting to see a flying talking creature after all."
     rd "What about you Fluttershy? Wanna come watch me do tricks for Anon?"
     f "U-um... Yes, please..."
@@ -812,7 +896,7 @@ label party:
     p "The other game tonight will be... pin the tail on the pony!"
     "The crowd cheers."
     "Must be a favourite."
-    p "And our first contestant will be... " 
+    p "And our first contestant will be... "
     "Pinkie waves her hoof around the crowd."
     "And around..."
     "And around..."
@@ -825,11 +909,11 @@ label party:
     a "I may have never played pin the tail on the pony but I never turn down a good challenge!"
     "The crowd erupts again, pleased with my gusto."
     "This is going to be a great night indeed."
- 
+
 
     call screen party
-    
-    
+
+
 label pinkieparty:
     "You find Pinkie in the front of the building, where a makeshift kitchen is. She's busy making something."
     a "So you're a baker?"
@@ -851,7 +935,7 @@ label pinkieparty:
     p "It'll be super easy, you'll see! Come by anytime!"
 
     jump afterparty
-    
+
 label spikeparty:
     "I find Spike in a chair with a comic laying next to him and he's looking through an advertiser that looks like it came out of his comic."
     a "What are you up to, little dude?"
@@ -882,7 +966,7 @@ label spikeparty:
     "He sighs wistfully."
     s "Yeah, I wish we had that here."
     jump afterparty
-    
+
 label twilightparty:
     "As the party wears on into the night, groups are breaking off to talk and hang out."
     "I look around for a familiar face."
@@ -951,7 +1035,7 @@ label fluttershyparty:
     a "Like a zoo?"
     f "No, not like a zoo... we rescue them."
     jump afterparty
-    
+
 label applejackparty:
     "I go over to talk to her and she's having a conversation with another pony."
     aj "Ah'm tellin' ya, Dash, you can't harvest an apple tree by hitting it with lightning! That's just gonna set the tree on fire!"
@@ -966,13 +1050,13 @@ label applejackparty:
     "I take a step forward and say:"
     menu:
         "I think Applejack is right.":
-            
+
             jump applejackright
 
         "I think Rainbow Dash is right.":
-            
+
             jump rainbowdashright
-    
+
 label applejackright:
     "Applejack turns around smugly."
     aj "Yeah, the only thing that'd accomplish is settin' the tree on fire!"
@@ -984,7 +1068,7 @@ label rainbowdashright:
     aj "Then Ah guess we'll never know! My precious apple trees have been raised since Ah was a filly."
     aj "Seeing one struck down is like losing a family member."
     "Rainbow Dash softens and gives her a hug. Applejack pushes her away, still smiling."
-    aj "I don't need a hug cause it ain't happenin'!"   
+    aj "I don't need a hug cause it ain't happenin'!"
     jump afterparty
 
 label afterparty:
@@ -1046,7 +1130,7 @@ label afterparty:
     "I then think about how nice the ponies and everything is here."
     "I could certainly do with more of a place like this in my life."
     a "I have to wonder, even if I can go back, do I want to?"
-    
+
 
 label prank:
     "On your way back to the treebrary, you can't help but notice the peaceful, easygoing atmosphere of Ponyville."
@@ -1131,7 +1215,7 @@ label prank:
     t "Why don't you go get yourself cleaned up, I'll have Spike take care of the mess in here. In the meantime, I'll prepare us a real lunch. Salad?"
     a "Sure."
 return
-    
+
 label lyra:
     "It's after Pinkie's party."
     "I decide to hang out with one the ponies I met there."
@@ -1143,7 +1227,7 @@ label lyra:
     "You shrug."
     a "Sure, I've got time. Where's the venue?"
     show lyra hop with Dissolve(0.5)
-    "Lyra jumps in excitement." 
+    "Lyra jumps in excitement."
     l "This way! This way!"
     show lyra hoof with Dissolve(0.5)
     "She turns and at a brisker pace than usual, trots towards her intended location."
@@ -1167,7 +1251,7 @@ label lyra:
     "In front of you sits what looks like a sandwich and milkshake. Lyra has just a milkshake."
     a "...Well, where's your food?"
     l "Oh, well, I already ate."
-    a "Wait... then why did you...?" 
+    a "Wait... then why did you...?"
     "You let yourself trail off, unsure whether or not to confront the unicorn in front of you."
     show lyra blush with Dissolve(0.5)
     "You sigh and shake your head, and make eye contact with the now-blushing mare."
@@ -1189,12 +1273,12 @@ label lyra:
     show lyra blush with Dissolve(0.5)
     "Huh?!"
     "She gasps, entirely not expecting this suggestion, and red cheeks flare up once again."
-    l "Oh well, i-if you're considering, then sure..." 
+    l "Oh well, i-if you're considering, then sure..."
     "She gives you a small smile."
     "So cute!"
     "Without much resistance, a mischievous idea pops into your mind, and you give it absolutely zero risk assessment."
     "Taking a couple of daffodils in your hand, you hold them out to Lyra with a smirk."
-    a "Here you go." 
+    a "Here you go."
     "You say simply, trying to make it look as casual as possible."
     "Lyra, on the other hand, has a shocked expression on her face, and in a lowered voice whispers to you."
     show lyra surprised with Dissolve(0.5)
@@ -1222,7 +1306,7 @@ label lyra:
     "She's sucking down her shake nervously, as the embarrassment still lingers on her face."
     "You are casually drinking your own, feeling quite pleased with yourself."
     "She finishes first, no doubt trying to remove herself from the situation as fast as possible."
-    l "Hey, well, it's been fun, Anon! I'll see you some other time, okay?" 
+    l "Hey, well, it's been fun, Anon! I'll see you some other time, okay?"
     "She says it with a nervous smile."
     "You laugh."
     a "Absolutely, Lyra. I hope to see you again soon."
