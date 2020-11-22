@@ -283,7 +283,7 @@ menu:
         "It definitely wasn't what you expected."
         "You don't finish it, you only get about a quarter of the way through before you start feeling tired."
 
-"I give a big yawn."
+"You give a big yawn."
 "You shut the book and place it back on its shelf where you got it from"
 a "Hey, I'm going to bed now."
 show zecora sit with Dissolve(0.5)
